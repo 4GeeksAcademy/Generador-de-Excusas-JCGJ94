@@ -11,17 +11,21 @@ let what = ['my homework', 'my phone', 'the car'];
 let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
 
 window.onload = function() {
-document.getElementById("excusas").innerHTML = generarExcusa();
-//write your code here
-function generarExcusa(){
-  const quien = who[Math.floor(Math.random() * who.length)];
-  const accion = action[Math.floor(Math.random() * action.length)];
-  const que = what[Math.floor(Math.random() * what.length)];
-  const cuando = when[Math.floor(Math.random() * when.length)];
-  return `<p>${quien} <b>${accion}</b> ${que} <b>${cuando}</b>.</p>`;
-}
-console.log(generarExcusa()) 
+  const excusasDiv = document.getElementById("excusas");
+  const btnGenerator = document.getElementById("btn-generate");
+  //write your code here
+  function generarExcusa(){
+    const quien = who[Math.floor(Math.random() * who.length)];
+    const accion = action[Math.floor(Math.random() * action.length)];
+    const que = what[Math.floor(Math.random() * what.length)];
+    const cuando = when[Math.floor(Math.random() * when.length)];
+    return `<p>${quien} <b>${accion}</b> ${que} <b>${cuando}</b>.</p>`;
+  }
+  excusasDiv.innerHTML = generarExcusa();
 
-};        
+  btnGenerator.addEventListener("click", function(){
+     excusasDiv.innerHTML = generarExcusa();
+  });
+}       
 
 
